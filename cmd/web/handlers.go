@@ -17,7 +17,8 @@ type snippetCreateForm struct {
 	validator.Validator `form:"-"`
 }
 
-func (app *application) home(w http.ResponseWriter, r *http.Request) { //a method on the application struct
+// a method on the application struct
+func (app *application) home(w http.ResponseWriter, r *http.Request) {
 	snippets, err := app.snippets.Latest()
 	if err != nil {
 		app.serverError(w, r, err)
@@ -89,6 +90,8 @@ func (app *application) snippetCreatePost(w http.ResponseWriter, r *http.Request
 		app.serverError(w, r, err)
 		return
 	}
+
+	app.sessionManager.Put(r.Context(), "flash", "Snippet successfully created!")
 
 	http.Redirect(w, r, fmt.Sprintf("/snippet/view/%d", id), http.StatusSeeOther)
 }
