@@ -3,8 +3,9 @@ package main
 import (
 	"html/template"
 	"path/filepath"
-	"snippetbox.iliya.com/internal/models"
 	"time"
+
+	"snippetbox.iliya.com/internal/models"
 )
 
 type templateData struct {

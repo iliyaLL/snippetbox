@@ -7,8 +7,8 @@ import (
 )
 
 type Snippet struct {
-	ID int
-	Title string
+	ID      int
+	Title   string
 	Content string
 	Created time.Time
 	Expires time.Time
@@ -62,9 +62,6 @@ func (m *SnippetModel) Latest() ([]Snippet, error) {
 		return nil, err
 	}
 
-
-	//close connection after executing surrounding functions
-	//ensure connection closes before function returns
 	defer rows.Close()
 
 	var snippets []Snippet

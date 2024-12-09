@@ -3,11 +3,13 @@ package main
 import (
 	"errors"
 	"fmt"
-	"github.com/julienschmidt/httprouter"
 	"net/http"
+	"strconv"
+
+	"github.com/julienschmidt/httprouter"
+
 	"snippetbox.iliya.com/internal/models"
 	"snippetbox.iliya.com/internal/validator"
-	"strconv"
 )
 
 type snippetCreateForm struct {
@@ -97,21 +99,16 @@ func (app *application) snippetCreatePost(w http.ResponseWriter, r *http.Request
 }
 
 func (app *application) userSignup(w http.ResponseWriter, r *http.Request) {
-
 }
 
 func (app *application) userSignupPost(w http.ResponseWriter, r *http.Request) {
-
 }
 
 func (app *application) userLogin(w http.ResponseWriter, r *http.Request) {
-
 }
 
 func (app *application) userLoginPost(w http.ResponseWriter, r *http.Request) {
-
 }
 
 func (app *application) userLogoutPost(w http.ResponseWriter, r *http.Request) {
-
 }

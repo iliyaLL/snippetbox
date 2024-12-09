@@ -4,21 +4,24 @@ import (
 	"crypto/tls"
 	"database/sql"
 	"flag"
-	"github.com/alexedwards/scs/mysqlstore"
-	"github.com/alexedwards/scs/v2"
-	"github.com/go-playground/form"
-	_ "github.com/go-sql-driver/mysql"
 	"html/template"
 	"log/slog"
 	"net/http"
 	"os"
-	"snippetbox.iliya.com/internal/models"
 	"time"
+
+	"github.com/alexedwards/scs/mysqlstore"
+	"github.com/alexedwards/scs/v2"
+	"github.com/go-playground/form"
+	_ "github.com/go-sql-driver/mysql"
+
+	"snippetbox.iliya.com/internal/models"
 )
 
 type application struct {
 	logger         *slog.Logger
 	snippets       *models.SnippetModel
+	users          *models.UserModel
 	templateCache  map[string]*template.Template
 	formDecoder    *form.Decoder
 	sessionManager *scs.SessionManager
@@ -55,6 +58,7 @@ func main() {
 	app := &application{
 		logger:         logger,
 		snippets:       &models.SnippetModel{DB: db},
+		users:          &models.UserModel{DB: db},
 		templateCache:  templateCache,
 		formDecoder:    formDecoder,
 		sessionManager: sessionManager,
@@ -88,7 +92,6 @@ func openDB(dsn string) (*sql.DB, error) {
 	}
 
 	err = db.Ping()
-
 	if err != nil {
 		db.Close()
 		return nil, err
