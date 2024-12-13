@@ -3,6 +3,10 @@ A web application, which lets people paste and share their snippets - like GitHu
 
 till chapter 10 - Server and Security Improvements
 
+## Setup
+### TLS certificate
+
+
 ## Routes Documentation
 
 1. **GET /**
