@@ -6,6 +6,14 @@ till chapter 10 - Server and Security Improvements
 ## Setup
 ### TLS certificate
 
+``` bash
+mkdir tls
+cd tls
+# generate_cert.go location
+# generates tls certificates
+go run /../generate_cert.go --rsa-bits=2048 --host=localhost
+```
+
 
 ## Routes Documentation
 
