@@ -20,9 +20,9 @@ type snippetCreateForm struct {
 }
 
 type userSignupForm struct {
-	Name                string `form:name`
-	Email               string `form:email`
-	Password            string `form:password`
+	Name                string `form:"name"`
+	Email               string `form:"email"`
+	Password            string `form:"password"`
 	validator.Validator `form:"-"`
 }
 
@@ -119,8 +119,6 @@ func (app *application) userSignupPost(w http.ResponseWriter, r *http.Request) {
 		app.clientError(w, http.StatusBadRequest)
 		return
 	}
-
-	fmt.Println("Bingo!", form.Name)
 
 	form.CheckField(validator.NotBlank(form.Name), "name", "This field cannot be blank")
 	form.CheckField(validator.NotBlank(form.Email), "email", "This field cannot be blank")
