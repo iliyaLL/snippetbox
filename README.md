@@ -4,6 +4,10 @@ A web application, which lets people paste and share their snippets - like GitHu
 till chapter 10 - Server and Security Improvements
 
 ## Setup
+### MySQL
+
+Create tables and fill them with dummy data using the sql scripts ```./schemas```
+
 ### TLS certificate
 
 ``` bash
