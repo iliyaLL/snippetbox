@@ -1,7 +1,7 @@
 # snippetbox
 A web application, which lets people paste and share their snippets - like GitHub's [Gists][1].
 
-till chapter 10 - Server and Security Improvements
+till chapter 11 - User Authentication
 
 ## Setup
 ### MySQL
@@ -59,11 +59,12 @@ go run /../generate_cert.go --rsa-bits=2048 --host=localhost
 
 
 ## Tech
-- Go (version go1.22.0 windows/amd64)
-- MySql (Ver 8.0.36 for Win64 on x86_64)
-- Web: HTML, CSS
+- Go (version go1.23.4 linux/amd64)
+- MySql (Ver 8.0.40-0ubuntu0.24.04.1 for Linux on x86_64)
+- Web: HTML, CSS, js
 - [HttpRouter][2] (routing)
 - [Alice][3] (middleware chaining)
+- [Session Manager][4] (manager for working with sessions)
 
 ## Copyright and disclaimer
 Let’s Go: Learn to build professional web applications with Go. Copyright © 2023 Alex Edwards.
@@ -71,3 +72,4 @@ Let’s Go: Learn to build professional web applications with Go. Copyright © 2
 [1]: https://gist.github.com/  "Gists"
 [2]: https://github.com/julienschmidt/httprouter "HttpRouter"
 [3]: https://github.com/justinas/alice "Alice"
+[4]: https://github.com/alexedwards/scs "Session Manager"
